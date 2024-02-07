@@ -1,0 +1,15 @@
+/home/shuwaki10/ExhaustiveSearch/bin/Debug/net6.0/ExhaustiveSearch
+/home/shuwaki10/ExhaustiveSearch/bin/Debug/net6.0/ExhaustiveSearch.deps.json
+/home/shuwaki10/ExhaustiveSearch/bin/Debug/net6.0/ExhaustiveSearch.runtimeconfig.json
+/home/shuwaki10/ExhaustiveSearch/bin/Debug/net6.0/ExhaustiveSearch.dll
+/home/shuwaki10/ExhaustiveSearch/bin/Debug/net6.0/ExhaustiveSearch.pdb
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.csproj.AssemblyReference.cache
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.GeneratedMSBuildEditorConfig.editorconfig
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.AssemblyInfoInputs.cache
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.AssemblyInfo.cs
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.csproj.CoreCompileInputs.cache
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.dll
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/refint/ExhaustiveSearch.dll
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.pdb
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ExhaustiveSearch.genruntimeconfig.cache
+/home/shuwaki10/ExhaustiveSearch/obj/Debug/net6.0/ref/ExhaustiveSearch.dll
