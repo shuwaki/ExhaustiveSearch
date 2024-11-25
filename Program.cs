@@ -1,7 +1,7 @@
 ﻿namespace ExhaustiveSearch;
 class Program
 {
-    public static Task<List<ResultItem>> FindMatchesAsync(List<string> list, string query, int numberOfItemsToReturn = -1)
+    public static Task<List<ResultItem>> FindMatchesAsync(List<string> list, string query, int numberOfItemsToReturn = -1, out ObservableCollection<ResultItem> output)
     {
         var results = new List<ResultItem>();
         foreach (string item in list)
