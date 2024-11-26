@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/shuwaki10/ExhaustiveSearch/ExhaustiveSearch.csproj": {}
+    "C:\\Users\\shuwa\\OneDrive\\Documents\\source\\ExhaustiveSearch\\ExhaustiveSearch.csproj": {}
   },
   "projects": {
-    "/home/shuwaki10/ExhaustiveSearch/ExhaustiveSearch.csproj": {
+    "C:\\Users\\shuwa\\OneDrive\\Documents\\source\\ExhaustiveSearch\\ExhaustiveSearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/shuwaki10/ExhaustiveSearch/ExhaustiveSearch.csproj",
+        "projectUniqueName": "C:\\Users\\shuwa\\OneDrive\\Documents\\source\\ExhaustiveSearch\\ExhaustiveSearch.csproj",
         "projectName": "ExhaustiveSearch",
-        "projectPath": "/home/shuwaki10/ExhaustiveSearch/ExhaustiveSearch.csproj",
-        "packagesPath": "/home/shuwaki10/.nuget/packages/",
-        "outputPath": "/home/shuwaki10/ExhaustiveSearch/obj/",
+        "projectPath": "C:\\Users\\shuwa\\OneDrive\\Documents\\source\\ExhaustiveSearch\\ExhaustiveSearch.csproj",
+        "packagesPath": "C:\\Users\\shuwa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shuwa\\OneDrive\\Documents\\source\\ExhaustiveSearch\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/shuwaki10/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\shuwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,12 +54,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.418/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

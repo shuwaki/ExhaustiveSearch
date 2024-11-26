@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "4d4XDbDGunPA7Pw1H9twHpBJeq9Fi1K4fFSMau2O/sdrEWjGXXuTfZfGzTXuiUeF3sPVTtFo6MXGTzhUR1U9cw==",
+  "dgSpecHash": "hKDo59cLk1jelqarXQM3diyHhc7D7H5I0o9eW1ZqKYOBtRRiL8tfkbs6GhVYdayJRVSn/kgRaZBdQz2WAdbgJA==",
   "success": true,
-  "projectFilePath": "/home/shuwaki10/ExhaustiveSearch/ExhaustiveSearch.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\shuwa\\OneDrive\\Documents\\source\\ExhaustiveSearch\\ExhaustiveSearch.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shuwa\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\shuwa\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\shuwa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\shuwa\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
   "logs": []
 }
