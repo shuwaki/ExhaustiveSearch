@@ -1,4 +1,4 @@
-namespace ExhaustiveSearch;
+namespace DigitalWorxpaces.Utilities.Search;
 
 /// <summary>
 /// Describes how a business object's name matched a search query.

@@ -1,6 +1,6 @@
 using DigitalWorxpaces.Worxpace.Base;
 
-namespace ExhaustiveSearch;
+namespace DigitalWorxpaces.Utilities.Search;
 
 /// <summary>
 /// Searches named business objects and orders matches by relevance.

@@ -1,6 +1,7 @@
 using DigitalWorxpaces.Worxpace.Base;
+using Xunit;
 
-namespace ExhaustiveSearch.Tests;
+namespace DigitalWorxpaces.Utilities.Search.Tests;
 
 public sealed class ExhaustiveSearcherTests
 {

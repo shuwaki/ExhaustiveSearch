@@ -1,14 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- NuGet metadata -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>C:\MyNugetFeed</PackageOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageId>ExhaustiveSearch</PackageId>
-    <Version>1.1.0</Version>
-    <Authors>Ibrahim Shuwaki</Authors>
+    <PackageId>DigitalWorxpaces.Utilities.Search</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>shuwaki</Authors>
     <Description>Relevance-ranked exact, token, substring, and fuzzy search for INamedBusinessObject collections.</Description>
+    <PackageDescription>Relevance-ranked exact, token, substring, and fuzzy search for INamedBusinessObject collections</PackageDescription>
     <PackageTags>search;fuzzy-search;dotnet;business-objects</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -24,7 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DigitalWorxpaces.Worxpace.Base" Version="1.0.7" />
+    <PackageReference Include="DigitalWorxpaces.Worxpace.Base" Version="1.0.25" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
   </ItemGroup>
 
