@@ -1,7 +1,7 @@
 using System.Reflection;
 using DigitalWorxpaces.Worxpace.Base;
 
-namespace ExhaustiveSearch.Tests;
+namespace DigitalWorxpaces.Utilities.Search.Tests;
 
 internal static class NamedBusinessObjectFactory
 {

@@ -1,4 +1,4 @@
-namespace ExhaustiveSearch;
+namespace DigitalWorxpaces.Utilities.Search;
 
 /// <summary>
 /// Configures a search operation.

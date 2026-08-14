@@ -1,6 +1,6 @@
 using DigitalWorxpaces.Worxpace.Base;
 
-namespace ExhaustiveSearch;
+namespace DigitalWorxpaces.Utilities.Search;
 
 /// <summary>
 /// Represents a scored name match while preserving the caller's concrete object type.
