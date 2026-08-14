@@ -51,6 +51,21 @@ foreach (SearchResult<Customer> result in results)
 The generic result retains the original `Customer` instance; consumers do not need
 to cast back from `INamedBusinessObject`.
 
+### Saleable objects
+
+Passing a sequence declared as `IEnumerable<ISaleable>` selects the saleable
+overload. It preserves relevance score as the primary ordering rule and uses
+descending `UsageIndex` as the first tie-breaker:
+
+```csharp
+IReadOnlyList<SearchResult<ISaleable>> results =
+    ExhaustiveSearcher.FindMatches(saleableItems, "acme");
+```
+
+Declare the sequence as `IEnumerable<ISaleable>` when this behavior is required;
+the generic `INamedBusinessObject` overload otherwise retains its standard
+tie-breaking behavior.
+
 ## Matching and scores
 
 The first applicable direct-match rule wins:
@@ -79,6 +94,9 @@ Results are ordered by:
 5. case-insensitive name order;
 6. original source position.
 
+For the `ISaleable` overload, descending `UsageIndex` is inserted immediately after
+score and before the remaining tie-breakers.
+
 Distinct objects are not deduplicated, even when they have the same name.
 
 ## Input behavior
@@ -102,6 +120,10 @@ dotnet build ExhaustiveSearch.sln --configuration Release --no-restore
 dotnet test ExhaustiveSearch.sln --configuration Release --no-build
 dotnet pack src/ExhaustiveSearch/ExhaustiveSearch.csproj --configuration Release --no-build
 ```
+
+Builds use the repository-pinned .NET 8 SDK policy, enable the .NET 8 recommended
+analyzers, enforce code style, and treat warnings as errors. Packing also runs .NET
+package validation and produces a symbols package.
 
 The implementation plan and current status are maintained in [ROADMAP.md](ROADMAP.md).
 

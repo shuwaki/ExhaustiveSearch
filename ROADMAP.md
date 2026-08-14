@@ -19,9 +19,10 @@ Status markers used below are **Complete**, **In progress**, and **Planned**.
   application artifacts have been removed.
 - **Complete — Change set 2:** a .NET 8 xUnit project records direct behavior,
   validation, limits, identity, ordering, and single-enumeration semantics.
-- **In progress — build verification:** the dependency version and namespace are now
-  confirmed, but the current environment has no .NET SDK. Execution of the test and
-  pack pipeline remains delegated to CI or an equipped development environment.
+- **In progress — build verification:** the .NET 8 SDK is available and an offline
+  compile/behavior harness passes against the confirmed interface shape. NuGet access
+  is still unavailable locally, so the real dependency restore and xUnit/package
+  pipeline remain delegated to CI.
 - **Complete — Change set 3:** fuzzy matching now requires a complete ordered
   subsequence, rewards compact and adjacent matches, supports punctuation-aware
   tokenization, and applies deterministic secondary ordering.
@@ -35,8 +36,14 @@ Status markers used below are **Complete**, **In progress**, and **Planned**.
 - **Complete — API completion:** `SearchOptions` supports result limits, minimum-score
   filtering, and fuzzy-match inclusion, while the synchronous search API supports
   cooperative cancellation.
+- **Complete — saleable ranking:** an `ISaleable` overload keeps relevance as the
+  primary ordering rule and uses descending `UsageIndex` as its first tie-breaker.
 - **Next — release verification:** run the CI restore/build/test/pack pipeline and
   address any compiler, package-contract, analyzer, or test feedback it produces.
+
+Release hardening now pins the SDK policy and C# language version, enables the .NET 8
+recommended analyzers and warnings-as-errors, validates the NuGet package, emits
+symbols, includes README/license assets, and inspects package artifacts in CI.
 
 ## Milestone 1 — Convert the application into a .NET 8 library
 

@@ -255,6 +255,23 @@ public sealed class ExhaustiveSearcherTests
             result => Assert.Same(longest, result.Item));
     }
 
+    [Fact]
+    public void FindMatches_ForSaleablesUsesDescendingUsageIndexAfterScore()
+    {
+        ISaleable lessUsed = NamedBusinessObjectFactory.CreateSaleable("Alpha First", 2);
+        ISaleable moreUsed = NamedBusinessObjectFactory.CreateSaleable("Alpha Second", 10);
+        ISaleable exact = NamedBusinessObjectFactory.CreateSaleable("Alpha", 0);
+
+        IReadOnlyList<SearchResult<ISaleable>> results =
+            ExhaustiveSearcher.FindMatches([lessUsed, moreUsed, exact], "alpha");
+
+        Assert.Collection(
+            results,
+            result => Assert.Same(exact, result.Item),
+            result => Assert.Same(moreUsed, result.Item),
+            result => Assert.Same(lessUsed, result.Item));
+    }
+
     private sealed class SingleUseEnumerable<T>(IEnumerable<T> source) : IEnumerable<T>
     {
         public int EnumerationCount { get; private set; }

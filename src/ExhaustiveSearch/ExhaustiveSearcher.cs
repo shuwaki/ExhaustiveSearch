@@ -22,7 +22,7 @@ public static class ExhaustiveSearcher
     /// <typeparam name="T">The caller's named business object type.</typeparam>
     /// <param name="items">The objects to search. The sequence is enumerated once.</param>
     /// <param name="query">The case-insensitive query.</param>
-    /// <param name="options">Optional result limits.</param>
+    /// <param name="options">Optional filtering and result limits.</param>
     /// <param name="cancellationToken">A token used to cancel enumeration and scoring.</param>
     /// <returns>
     /// Matches ordered from strongest to weakest using match position, compactness,
@@ -33,6 +33,43 @@ public static class ExhaustiveSearcher
         string query,
         SearchOptions? options = null,
         CancellationToken cancellationToken = default)
+        where T : INamedBusinessObject
+    {
+        return FindMatchesCore(items, query, options, cancellationToken, usageIndexSelector: null);
+    }
+
+    /// <summary>
+    /// Finds saleable objects whose names match <paramref name="query"/>, preferring
+    /// higher usage indexes when relevance scores are equal.
+    /// </summary>
+    /// <param name="items">The saleable objects to search. The sequence is enumerated once.</param>
+    /// <param name="query">The case-insensitive query.</param>
+    /// <param name="options">Optional filtering and result limits.</param>
+    /// <param name="cancellationToken">A token used to cancel enumeration and scoring.</param>
+    /// <returns>
+    /// Matches ordered from strongest to weakest, with descending
+    /// <see cref="ISaleable.UsageIndex"/> as the first tie-breaker.
+    /// </returns>
+    public static IReadOnlyList<SearchResult<ISaleable>> FindMatches(
+        IEnumerable<ISaleable> items,
+        string query,
+        SearchOptions? options = null,
+        CancellationToken cancellationToken = default)
+    {
+        return FindMatchesCore(
+            items,
+            query,
+            options,
+            cancellationToken,
+            item => item.UsageIndex);
+    }
+
+    private static IReadOnlyList<SearchResult<T>> FindMatchesCore<T>(
+        IEnumerable<T> items,
+        string query,
+        SearchOptions? options,
+        CancellationToken cancellationToken,
+        Func<T, int>? usageIndexSelector)
         where T : INamedBusinessObject
     {
         ArgumentNullException.ThrowIfNull(items);
@@ -54,7 +91,7 @@ public static class ExhaustiveSearcher
             options.MinimumScore > ExactScore)
         {
             throw new ArgumentOutOfRangeException(
-                nameof(SearchOptions.MinimumScore),
+                nameof(options),
                 options.MinimumScore,
                 $"MinimumScore must be a finite value from 0 through {ExactScore}.");
         }
@@ -142,6 +179,7 @@ public static class ExhaustiveSearcher
 
                 results.Add(new(
                     new SearchResult<T>(itemObject, score, matchKind),
+                    usageIndexSelector?.Invoke(itemObject) ?? 0,
                     matchStart,
                     gapCount,
                     itemObject.Name,
@@ -151,6 +189,7 @@ public static class ExhaustiveSearcher
 
         IEnumerable<SearchResult<T>> ordered = results
             .OrderByDescending(x => x.Result.Score)
+            .ThenByDescending(x => x.UsageIndex)
             .ThenBy(x => x.MatchStart)
             .ThenBy(x => x.GapCount)
             .ThenBy(x => x.Name.Length)
@@ -166,7 +205,7 @@ public static class ExhaustiveSearcher
         return ordered.ToList();
     }
 
-    private static IReadOnlyList<Token> Tokenize(string value, CancellationToken cancellationToken)
+    private static List<Token> Tokenize(string value, CancellationToken cancellationToken)
     {
         var tokens = new List<Token>();
         int start = -1;
@@ -289,6 +328,7 @@ public static class ExhaustiveSearcher
 
     private sealed record RankedResult<T>(
         SearchResult<T> Result,
+        int UsageIndex,
         int MatchStart,
         int GapCount,
         string Name,

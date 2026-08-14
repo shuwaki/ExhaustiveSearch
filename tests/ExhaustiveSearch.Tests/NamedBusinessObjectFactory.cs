@@ -13,11 +13,22 @@ internal static class NamedBusinessObjectFactory
         return instance;
     }
 
+    public static ISaleable CreateSaleable(string name, int usageIndex)
+    {
+        ISaleable instance = DispatchProxy.Create<ISaleable, NamedBusinessObjectProxy>();
+        var proxy = (NamedBusinessObjectProxy)(object)instance;
+        proxy.Name = name;
+        proxy.UsageIndex = usageIndex;
+        return instance;
+    }
+
 }
 
 public class NamedBusinessObjectProxy : DispatchProxy
 {
     public string Name { get; set; } = string.Empty;
+
+    public int UsageIndex { get; set; }
 
     protected override object? Invoke(MethodInfo? targetMethod, object?[]? args)
     {
@@ -25,6 +36,8 @@ public class NamedBusinessObjectProxy : DispatchProxy
         {
             "get_Name" => Name,
             "set_Name" => SetName(args),
+            "get_UsageIndex" => UsageIndex,
+            "set_UsageIndex" => SetUsageIndex(args),
             "ToString" => Name,
             "GetHashCode" => Name.GetHashCode(StringComparison.Ordinal),
             "Equals" => ReferenceEquals(this, args?[0]),
@@ -35,6 +48,12 @@ public class NamedBusinessObjectProxy : DispatchProxy
     private object? SetName(object?[]? args)
     {
         Name = (string?)args?[0] ?? string.Empty;
+        return null;
+    }
+
+    private object? SetUsageIndex(object?[]? args)
+    {
+        UsageIndex = (int?)args?[0] ?? 0;
         return null;
     }
 

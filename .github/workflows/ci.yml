@@ -33,6 +33,11 @@ jobs:
       - name: Pack
         run: dotnet pack src/ExhaustiveSearch/ExhaustiveSearch.csproj --configuration Release --no-build --output artifacts
 
+      - name: Inspect package contents
+        run: |
+          unzip -l artifacts/ExhaustiveSearch.*.nupkg
+          test -f artifacts/ExhaustiveSearch.*.snupkg
+
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
